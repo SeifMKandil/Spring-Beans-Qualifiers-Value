@@ -1,1 +1,2 @@
 # Spring-Beans-Qualifiers-Value
+Removal of the task service @Service annotation, and write the equivalent bean.     Injection of multiple services under the task service to return a different list for each qualifier StaticTasksService  Beans of static tasks service  1.AliceList  2.BobList  using bean name and qualifier Load values for the 2 lists from Application properties using @Value annotation
