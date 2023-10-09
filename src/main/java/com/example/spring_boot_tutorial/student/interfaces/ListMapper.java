@@ -13,6 +13,5 @@ public interface ListMapper {
     @Mapping(source = "name", target = "name")
     @Mapping(source = "description", target = "description")
     @Mapping(source = "isCompleted", target = "isCompleted")
-    AliceTasks sourceToTarget(BobTasks source);
     List<AliceTasks> sourceListToTargetList(List<BobTasks> sources);
 }

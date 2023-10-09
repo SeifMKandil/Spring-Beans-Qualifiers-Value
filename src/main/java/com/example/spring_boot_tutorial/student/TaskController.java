@@ -1,7 +1,7 @@
 package com.example.spring_boot_tutorial.student;
 import com.example.configclass.interfaces.StaticTasksService;
+import com.example.spring_boot_tutorial.exceptions.TaskUtilizationException;
 import com.example.spring_boot_tutorial.exceptions.TasksEmptyException;
-import com.example.spring_boot_tutorial.student.classes.AliceTasks;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,14 +25,22 @@ public class TaskController {
     }
 
     @GetMapping("/alice")
-    public List<String> getAliceTasks() throws TasksEmptyException {
+    public List<String> getAliceTasks() throws TaskUtilizationException,TasksEmptyException {
         if (aliceList.getTasks().get(0).isEmpty())
             throw new TasksEmptyException();
+        else if (aliceList.getTasks().size() > 3) {
+            throw  new TaskUtilizationException();
+        }
         return aliceList.getTasks();
     }
 
     @GetMapping("/bob")
-    public List<String> getBobTasks() {
+    public List<String> getBobTasks() throws TaskUtilizationException , TasksEmptyException {
+        if (bobList.getTasks().get(0).isEmpty())
+            throw new TasksEmptyException();
+        else if (bobList.getTasks().size() > 3) {
+            throw  new TaskUtilizationException();
+        }
         return bobList.getTasks();
     }
 

@@ -28,7 +28,6 @@ public class SpringBootTutorialApplication {
 
         List<AliceTasks> aliceTasksList = listMapper.sourceListToTargetList(bobTasksList);
 
-        // Print the contents of the mapped list
         for (AliceTasks aliceTask : aliceTasksList) {
             System.out.println("Name: " + aliceTask.getName());
             System.out.println("Description: " + aliceTask.getDescription());
